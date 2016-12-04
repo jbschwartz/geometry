@@ -2,7 +2,9 @@ import BoundingBox from '../src/BoundingBox'
 import Point from '../src/Point'
 
 describe('BoundingBox', () => {
-  const box = new BoundingBox(new Point(0, 0), new Point(10, 20));
+  const minPoint = new Point(0, 0);
+  const maxPoint = new Point(10, 20);
+  const box = new BoundingBox(minPoint, maxPoint);
 
   it('contains min and max variables', () => {
     expect(box.min).toBeDefined();
@@ -29,11 +31,11 @@ describe('BoundingBox', () => {
     });
 
     it('splits along the x-axis', () => {
-      expect(boxes.low.min).toEqual(new Point(0, 0));
+      expect(boxes.low.min).toEqual(minPoint);
       expect(boxes.low.max).toEqual(new Point(5, 20));
 
       expect(boxes.high.min).toEqual(new Point(5, 0));
-      expect(boxes.high.max).toEqual(new Point(10, 20));
+      expect(boxes.high.max).toEqual(maxPoint);
     });
   });
 });
