@@ -20,6 +20,9 @@ export default class BoundingBox {
     if(at.x !== undefined) {
       low = new BoundingBox(this.min, new Point(at.x, this.max.y));
       high = new BoundingBox(new Point(at.x, this.min.y), this.max);
+    } else if(at.y !== undefined) {
+      low = new BoundingBox(this.min, new Point(this.max.x, at.y));
+      high = new BoundingBox(new Point(this.min.x, at.y), this.max);
     }
 
     return {
