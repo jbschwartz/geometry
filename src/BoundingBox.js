@@ -11,4 +11,11 @@ export default class BoundingBox {
   get height() {
     return (this.max.y - this.min.y);
   }
+
+  split() {
+    return {
+      low: new BoundingBox(),
+      high: new BoundingBox()
+    }
+  }
 }
