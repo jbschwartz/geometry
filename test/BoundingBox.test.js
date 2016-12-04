@@ -22,6 +22,16 @@ describe('BoundingBox', () => {
   describe('split', () => {
     const boxes = box.split({ x: 5 });
 
+    it('returns null with given no split line', () => {
+      const nullBoxes = box.split();
+
+      expect(nullBoxes.low).toBeDefined();
+      expect(nullBoxes.high).toBeDefined();
+
+      expect(nullBoxes.low).toBeNull();
+      expect(nullBoxes.high).toBeNull();
+    });
+
     it('splits BoundingBox into low and high BoundingBoxes', () => {
       expect(boxes.low).toBeDefined();
       expect(boxes.high).toBeDefined();
