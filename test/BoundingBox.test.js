@@ -37,5 +37,15 @@ describe('BoundingBox', () => {
       expect(boxes.high.min).toEqual(new Point(5, 0));
       expect(boxes.high.max).toEqual(maxPoint);
     });
+
+    it('splits along the y-axis', () => {
+      const boxesInY = box.split({ y: 5 });
+
+      expect(boxesInY.low.min).toEqual(minPoint);
+      expect(boxesInY.low.max).toEqual(new Point(10, 5));
+
+      expect(boxesInY.high.min).toEqual(new Point(0, 5));
+      expect(boxesInY.high.max).toEqual(maxPoint);
+    });
   });
 });
