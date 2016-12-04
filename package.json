@@ -1,0 +1,24 @@
+{
+  "name": "@jbschwartz/geometry",
+  "description": "Javascript geometry library",
+  "author": "James Schwartz <james@schwartz.engineer> (http://james.schwartz.engineer)",
+  "repository": "jbschwartz/geometry",
+  "license": "MIT",
+  "version": "0.1.0",
+  "scripts": {
+    "compile": "babel src --out-dir lib",
+    "test": "jest --watch",
+    "prepublish": "npm run compile"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "core-js": "^0.6.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-jest": "^17.0.2",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-latest": "^6.16.0",
+    "jest": "^17.0.3"
+  }
+}
