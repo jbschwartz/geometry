@@ -16,4 +16,15 @@ describe('BoundingBox', () => {
   it('calculates height', () => {
     expect(box.height).toBe(20);
   });
+
+  describe('split', () => {
+    const boxes = box.split();
+    it('splits BoundingBox into low and high BoundingBoxes', () => {
+      expect(boxes.low).toBeDefined();
+      expect(boxes.high).toBeDefined();
+
+      expect(boxes.low).toBeInstanceOf(BoundingBox);
+      expect(boxes.high).toBeInstanceOf(BoundingBox);
+    });
+  });
 });
