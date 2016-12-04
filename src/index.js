@@ -1,3 +1,7 @@
 import Point from './Point'
+import BoundingBox from './BoundingBox'
 
-export {Point};
+export {
+  BoundingBox,
+  Point
+};
