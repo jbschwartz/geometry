@@ -18,13 +18,22 @@ describe('BoundingBox', () => {
   });
 
   describe('split', () => {
-    const boxes = box.split();
+    const boxes = box.split({ x: 5 });
+
     it('splits BoundingBox into low and high BoundingBoxes', () => {
       expect(boxes.low).toBeDefined();
       expect(boxes.high).toBeDefined();
 
       expect(boxes.low).toBeInstanceOf(BoundingBox);
       expect(boxes.high).toBeInstanceOf(BoundingBox);
+    });
+
+    it('splits along the x-axis', () => {
+      expect(boxes.low.min).toEqual(new Point(0, 0));
+      expect(boxes.low.max).toEqual(new Point(5, 20));
+
+      expect(boxes.high.min).toEqual(new Point(5, 0));
+      expect(boxes.high.max).toEqual(new Point(5, 20));
     });
   });
 });
