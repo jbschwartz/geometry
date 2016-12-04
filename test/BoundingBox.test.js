@@ -33,7 +33,7 @@ describe('BoundingBox', () => {
       expect(boxes.low.max).toEqual(new Point(5, 20));
 
       expect(boxes.high.min).toEqual(new Point(5, 0));
-      expect(boxes.high.max).toEqual(new Point(5, 20));
+      expect(boxes.high.max).toEqual(new Point(10, 20));
     });
   });
 });
