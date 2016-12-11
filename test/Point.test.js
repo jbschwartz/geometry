@@ -1,9 +1,13 @@
 import Point from '../src/Point';
 
 describe('Point', () => {
-  const p1 = new Point(0, 0);
-  const p2 = new Point(2, 0);
-  const p3 = new Point(1, 1);
+  let p1, p2, p3, p4;
+  beforeEach(() => {
+    p1 = new Point(0, 0);
+    p2 = new Point(2, 0);
+    p3 = new Point(1, 1);
+    p4 = new Point(0, 0);
+  })
 
   describe('distanceTo', () => {
     it('correctly calculates distance to a point', () => {
@@ -24,4 +28,19 @@ describe('Point', () => {
       expect(p1.distanceToSq(p3)).toBe(p3.distanceToSq(p1));
     });
   });
+
+  describe('equals', () => {
+    it('correctly compares point for geometric equality', () => {
+      expect(p1.equals(p4)).toBeTruthy();
+      expect(p1.equals(p2)).toBeFalsy();
+    });
+    it('ignores order', () => {
+      expect(p4.equals(p1)).toBeTruthy();
+      expect(p2.equals(p1)).toBeFalsy();
+    });
+    it('ignores changes to javascript object', () => {
+      p1.someProperty = 'isNowDefined';
+      expect(p1.equals(p4)).toBeTruthy();
+    });
+  })
 });
