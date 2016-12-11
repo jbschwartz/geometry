@@ -17,4 +17,8 @@ export default class Point {
       Math.pow((this.y - point.y), 2)
     );
   }
+
+  equals(point) {
+    return (this.x == point.x) && (this.y == point.y);
+  }
 }
