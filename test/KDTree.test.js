@@ -53,6 +53,7 @@ describe('KDTree', () => {
       expect(tree.root.left.right.right).toBeUndefined();
     });
   });
+
   describe('add', () => {
     it('adds a point to tree', () => {
       const point = new Point(-2, 1);
@@ -62,5 +63,4 @@ describe('KDTree', () => {
       expect(tree.root.left.right.left.equals(point)).toBeTruthy();
     });
   });
-
 });
