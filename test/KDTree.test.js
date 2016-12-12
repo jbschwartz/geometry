@@ -34,7 +34,7 @@ describe('KDTree', () => {
     expect(tree.root).toBeDefined();
     expect(tree.root.equals(points[3])).toBeTruthy();
   });
-  
+
   describe('add', () => {
     it('adds a point to tree', () => {
       const point = new Point(-2, 1);
@@ -82,4 +82,11 @@ describe('KDTree', () => {
       expect(tree.root.left.right.right).toBeUndefined();
     });
   });
+
+  describe('nearestNeighbor', () => {
+    it('finds the nearest neighbor', () => {
+      expect(tree.nearestNeighbor(new Point(-2, 2)).equals(new Point(-1, 1))).toBeTruthy();
+      expect(tree.nearestNeighbor(new Point(.45, .05)).equals(new Point(0.5, 0))).toBeTruthy();
+    });
+  })
 });
