@@ -12,7 +12,11 @@ describe('KDTree', () => {
     new Point(1, -1)
   ]
 
-  const tree = new KDTree(points);
+  let tree;
+
+  beforeEach(() => {
+    tree = new KDTree(points);
+  })
 
   describe('branch', () => {
     it('splits in X by default', () => {
@@ -48,6 +52,15 @@ describe('KDTree', () => {
       expect(tree.root.left.left.right).toBeUndefined();
       expect(tree.root.left.right.right).toBeUndefined();
     });
-  })
+  });
+  describe('add', () => {
+    it('adds a point to tree', () => {
+      const point = new Point(-2, 1);
+      tree.add(point);
+
+      expect(tree.root.left.right.left).toBeDefined();
+      expect(tree.root.left.right.left.equals(point)).toBeTruthy();
+    });
+  });
 
 });
