@@ -11,17 +11,17 @@ export default class KDTree {
   }
 
 	add(point) {
-		let recurse = (node, axis) => {
+		let enter = (node) => {
 			if(typeof(node) === 'undefined') return point;
 
-			let direction = (point[axis] < node[axis]) ? 'left' : 'right';
+			let branch = (point[node.direction] < node[node.direction]) ? 'left' : 'right';
 
-			node[direction] = recurse(node[direction], next(axis));
+			node[branch] = enter(node[branch]);
 
 			return node;
 		}
 
-		this.root = recurse(this.root, AXES.X);
+		this.root = enter(this.root);
 	}
 
   branch(points, axis = AXES.X) {
