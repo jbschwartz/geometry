@@ -20,7 +20,7 @@ describe('KDTree', () => {
 
   describe('branch', () => {
     it('splits in X by default', () => {
-
+      expect(tree.root.direction).toEqual(AXES.X);
     });
   })
 
