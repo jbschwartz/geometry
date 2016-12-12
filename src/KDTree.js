@@ -24,6 +24,39 @@ export default class KDTree {
 		this.root = enter(this.root);
 	}
 
+	nearestNeighbor(point) {
+		let nearest = {
+			point: null,
+			value: Number.POSITIVE_INFINITY
+		};
+
+		let recurse = (node) => {
+			if(!node) return;
+
+			let candidateDistance = point.distanceToSq(node);
+			if(candidateDistance < nearest.value) {
+				nearest = {
+					point: node,
+					value: candidateDistance
+				}
+			}
+
+			let distanceToSplit = point[node.direction] - node[node.direction];
+
+			let [near, far] = (distanceToSplit < 0) ? ['left', 'right'] : ['right', 'left'];
+
+			recurse(node[near]);
+
+			if(Math.abs(distanceToSplit) < nearest.value) {
+				recurse(node[far]);
+			}
+		}
+
+		recurse(this.root);
+
+		return nearest.point;
+	}
+
   branch(points, axis = AXES.X) {
     if(points.length === 0) return;
 
