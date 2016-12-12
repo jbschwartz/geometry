@@ -1,5 +1,6 @@
 import KDTree from '../src/KDTree'
 import Point from '../src/Point'
+import AXES from '../src/Axes'
 
 describe('KDTree', () => {
   const points = [
