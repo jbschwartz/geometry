@@ -34,6 +34,7 @@ export default class KDTree {
 
     node.left = this.branch(points.slice(0, middle), next(axis));
     node.right = this.branch(points.slice(middle + 1), next(axis));
+		node.direction = axis;
 
     return node;
   }
