@@ -2,6 +2,17 @@ import KDTree from '../src/KDTree'
 import Point from '../src/Point'
 import AXES from '../src/Axes'
 
+function traverseAll(tree, visitor) {
+  let recurse = (node) => {
+    visitor(node);
+
+    if(node.left) recurse(node.left);
+    if(node.right) recurse(node.right);
+  }
+
+  recurse(tree.root);
+}
+
 describe('KDTree', () => {
   const points = [
     new Point(-1, 1),
@@ -18,6 +29,12 @@ describe('KDTree', () => {
   beforeEach(() => {
     tree = new KDTree(points);
   })
+
+  it('assigns a split direction to each node', () => {
+    traverseAll(tree, (node) => {
+      expect(node.direction).toBeDefined();
+    })
+  });
 
   describe('branch', () => {
     it('splits in X by default', () => {
