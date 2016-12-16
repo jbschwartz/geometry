@@ -28,5 +28,15 @@ describe('Polygon', () => {
       expect(polygon.contains()).toBeFalsy();
       expect(polygon.contains(null)).toBeFalsy();
     });
+
+    it('returns false when the point is on an edge', () => {
+      const p1 = new Point(1, 0);
+      const p2 = new Point(0, 0);
+
+      expect(polygon.contains(p1)).toBeFalsy();
+      expect(polygon.contains(p2)).toBeFalsy();
+    });
+
+
   });
 });
