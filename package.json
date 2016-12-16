@@ -4,7 +4,7 @@
   "author": "James Schwartz <james@schwartz.engineer> (http://james.schwartz.engineer)",
   "repository": "jbschwartz/geometry",
   "license": "MIT",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "scripts": {
     "compile": "babel src --out-dir lib",
     "test": "jest --watch",
