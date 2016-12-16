@@ -1,13 +1,14 @@
 import Polygon from '../src/Polygon'
+import Point from '../src/Point'
 
 describe('Polygon', () => {
-  const polygon = new Polygon(
+  const polygon = new Polygon([
     new Point(0, 0),
     new Point(1, 1),
     new Point(1, -1),
     new Point(-1, -1),
     new Point(-1, 1)
-  );
+  ]);
 
   describe('contains', () => {
     it('returns true when the polygon contains the point', () => {
