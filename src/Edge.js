@@ -10,4 +10,10 @@ export default class Edge {
       return (this.end.y <= y) && (this.start.y > y);
     }
   }
+
+  isLeftOf(point) {
+    const [x1, y1] = [this.start.x, this.start.y];
+    const [x2, y2] = [this.end.x, this.end.y];
+    return Math.sign((x2 - x1) * (point.y - y1) - (y2 - y1) * (point.x - x1)) < 0;
+  }
 }
