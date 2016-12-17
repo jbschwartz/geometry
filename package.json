@@ -7,7 +7,7 @@
   "version": "0.1.8",
   "scripts": {
     "compile": "babel src --out-dir lib",
-    "test": "jest --watch",
+    "test": "jest",
     "prepublish": "npm run compile"
   },
   "main": "lib/index.js",
