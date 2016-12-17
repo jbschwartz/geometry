@@ -28,6 +28,30 @@ describe('Edge', () => {
     });
   })
 
+  describe('midpoint', () => {
+    it('returns a Point', () => {
+      expect(upEdge.midpoint()).toBeInstanceOf(Point);
+    });
+
+    it('returns the midpoint of the edge', () => {
+      expect(upEdge.midpoint().equals(new Point(0.5, 0.5))).toBeTruthy();
+    });
+  });
+
+  describe('length', () => {
+    it('returns the length of the edge', () => {
+      const expected = start.distanceTo(end);
+      expect(upEdge.length()).toBe(expected);
+    });
+  });
+
+  describe('lengthSq', () => {
+    it('returns the squared length of the edge', () => {
+      const expected = start.distanceToSq(end);
+      expect(upEdge.lengthSq()).toBe(expected);
+    });
+  });
+
   describe('crosses', () => {
     it('returns true when edge crosses y-value', () => {
       expect(upEdge.crosses(0.5)).toBeTruthy();
