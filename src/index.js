@@ -4,6 +4,7 @@ import Edge from './Edge'
 import KDTree from './KDTree'
 import Point from './Point'
 import Polygon from './Polygon'
+import * as Utils from './Utils'
 
 export {
   BoundingBox,
@@ -11,5 +12,6 @@ export {
   Edge,
   KDTree,
   Point,
-  Polygon
+  Polygon,
+  Utils
 };
