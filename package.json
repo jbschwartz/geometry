@@ -5,6 +5,7 @@
   "repository": "jbschwartz/geometry",
   "license": "MIT",
   "version": "0.1.8",
+  "homepage": "https://github.com/jbschwartz/geometry#readme",
   "scripts": {
     "compile": "babel src --out-dir lib",
     "test": "jest",
