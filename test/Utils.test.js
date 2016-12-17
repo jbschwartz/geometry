@@ -15,5 +15,11 @@ describe('Utils', () => {
       expect(random(min, max, 0.5)).toBe(median);
       expect(random(min, max, 1)).toBe(max);
     });
+    
+    it('defaults to a range between 0 and 1', () => {
+      expect(random(null, null, 0)).toBe(0);
+      expect(random(null, null, 0.5)).toBe(0.5);
+      expect(random(null, null, 1)).toBe(1);
+    });
   });
 });
