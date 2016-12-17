@@ -2,8 +2,11 @@ import Edge from '../src/Edge'
 import Point from '../src/Point'
 
 describe('Edge', () => {
-  const upEdge = new Edge(new Point(0, 0), new Point(1, 1));
-  const downEdge =  new Edge(new Point(1, 1), new Point(0, 0));
+  const start = new Point(0, 0);
+  const end = new Point(1, 1);
+
+  const upEdge = new Edge(start, end);
+  const downEdge =  new Edge(end, start);
 
   describe('isLeftOf', () => {
     const p1 = new Point(2, 0);
