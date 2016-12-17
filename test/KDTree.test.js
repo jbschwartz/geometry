@@ -83,10 +83,35 @@ describe('KDTree', () => {
     });
   });
 
-  describe('nearestNeighbor', () => {
+  describe('nearestNeighbors', () => {
+    it('finds one neighbor by default', () => {
+      const neighbor = tree.nearestNeighbors(new Point(-2, 2));
+      expect(neighbor.length).toBe(1);
+    });
+
     it('finds the nearest neighbor', () => {
-      expect(tree.nearestNeighbor(new Point(-2, 2)).equals(new Point(-1, 1))).toBeTruthy();
-      expect(tree.nearestNeighbor(new Point(.45, .05)).equals(new Point(0.5, 0))).toBeTruthy();
+      let neighbor = tree.nearestNeighbors(new Point(-2, 2))[0];
+      expect(neighbor.equals(new Point(-1, 1))).toBeTruthy();
+
+      neighbor = tree.nearestNeighbors(new Point(.45, .05))[0];
+      expect(neighbor.equals(new Point(0.5, 0))).toBeTruthy();
+    });
+
+    it('returns N neighbors', () => {
+      const N = 3;
+      const neighbors = tree.nearestNeighbors(new Point(1, .5), N);
+      expect(neighbors.length).toBe(N);
+    });
+
+    it('correctly finds the N nearest neighbors', () => {
+      const neighbors = tree.nearestNeighbors(new Point(1, .5), 3);
+      const expected = [new Point(0.5, 0), new Point(1, 0), new Point(1, 1)];
+      expected.forEach(correct => {
+        const found = neighbors.reduce((sum, neighbor) => {
+          return (neighbor.equals(correct)) ? ++sum : sum;
+        }, 0);
+        expect(found).toBe(1);
+      });
     });
   })
 });
