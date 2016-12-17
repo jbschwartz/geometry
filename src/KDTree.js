@@ -24,21 +24,25 @@ export default class KDTree {
 		this.root = enter(this.root);
 	}
 
-	nearestNeighbor(point) {
-		let nearest = {
+	nearestNeighbors(point, count = 1) {
+		let nearest = [{
 			point: null,
-			value: Number.POSITIVE_INFINITY
-		};
+			distance: Number.POSITIVE_INFINITY
+		}];
 
 		let recurse = (node) => {
 			if(!node) return;
 
+			const farthest = nearest[nearest.length - 1].distance;
 			let candidateDistance = point.distanceToSq(node);
-			if(candidateDistance < nearest.value) {
-				nearest = {
+			if(candidateDistance < farthest) {
+				nearest.push({
 					point: node,
-					value: candidateDistance
-				}
+					distance: candidateDistance
+				});
+				nearest.sort((a, b) => a.distance - b.distance);
+
+				if(nearest.length > count) nearest.pop();
 			}
 
 			let distanceToSplit = point[node.direction] - node[node.direction];
@@ -47,14 +51,14 @@ export default class KDTree {
 
 			recurse(node[near]);
 
-			if(Math.abs(distanceToSplit) < nearest.value) {
+			if(Math.abs(distanceToSplit) < farthest) {
 				recurse(node[far]);
 			}
 		}
 
 		recurse(this.root);
 
-		return nearest.point;
+		return nearest.map((neighbor) => neighbor.point);
 	}
 
   branch(points, axis = AXES.X) {
