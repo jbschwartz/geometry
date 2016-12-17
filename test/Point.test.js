@@ -42,5 +42,9 @@ describe('Point', () => {
       p1.someProperty = 'isNowDefined';
       expect(p1.equals(p4)).toBeTruthy();
     });
+    it('returns false for comparison with a malformed Point', () => {
+      const malformed = new Point(NaN, NaN);
+      expect(p1.equals(malformed)).toBeFalsy();
+    });
   })
 });
