@@ -8,7 +8,6 @@ export default class Dijkstra {
 		// New initial point => invalidate the current graph
 		this.isValid = false;
 		this.initial = point;
-
 	}
 
 	shortestPath(goal) {
