@@ -42,10 +42,7 @@ export default class Dijkstra {
 				if(newDistance < neighbor.distance) {
 					neighbor.distance = newDistance;
 					neighbor.previous = current;
-					if(!neighbor.isInFringe) {
-						neighbor.isInFringe = true;
-						fringe.push(neighbor);
-					}
+					if(fringe.indexOf(neighbor) === -1) fringe.push(neighbor);
 				}
 			})
 
