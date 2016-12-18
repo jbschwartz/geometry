@@ -7,7 +7,7 @@ function equals(a, b) {
   for(let i = 0; i < a.length; ++i) {
     if(!a[i].equals(b[i])) return false;
   }
-
+  
   return true;
 }
 
@@ -37,15 +37,11 @@ describe('Dijkstra', () => {
     it('returns an array with the shortest path through the graph', () => {
       let path = dijkstra.shortestPath(F);
       let expected = [A, B, E, G, F];
-      for(let i = 0; i < path.length; ++i) {
-        expect(path[i].equals(expected[i])).toBeTruthy();
-      }
+      expect(equals(path, expected)).toBeTruthy();
 
       path = dijkstra.shortestPath(C);
       expected = [A, C];
-      for(let i = 0; i < path.length; ++i) {
-        expect(path[i].equals(expected[i])).toBeTruthy();
-      }
+      expect(equals(path, expected)).toBeTruthy();
     });
   });
 });
