@@ -1,6 +1,16 @@
 import Dijkstra from '../src/Dijkstra'
 import Point from '../src/Point'
 
+function equals(a, b) {
+  if(a.length != b.length) return false;
+
+  for(let i = 0; i < a.length; ++i) {
+    if(!a[i].equals(b[i])) return false;
+  }
+
+  return true;
+}
+
 describe('Dijkstra', () => {
   const [A, B, C, D, E, F, G] = [
     new Point(0, 0),
