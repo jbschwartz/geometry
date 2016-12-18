@@ -28,7 +28,7 @@ export default class Dijkstra {
 	}
 
 	initializeDistances() {
-		this.vertices.forEach(vertex => { vertex.distance = Number.INFINITY });
+		this.vertices.forEach(vertex => { vertex.distance = Infinity });
 		this.initial.distance = 0;
 	}
 
