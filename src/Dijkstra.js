@@ -22,7 +22,7 @@ export default class Dijkstra {
 			path.push(current);
 			current = current.previous;
 		}
-		while(current && current.distance <= 0);
+		while(current && current.distance >= 0);
 
 		return path.reverse();
 	}
