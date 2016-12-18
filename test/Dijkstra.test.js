@@ -21,17 +21,17 @@ describe('Dijkstra', () => {
   G.connections = [E, F];
 
   const points = [A, B, C, D, E, F, G];
-  const djikstra = new Dijkstra(points, A);
+  const dijkstra = new Dijkstra(points, A);
 
   describe('shortestPath', () => {
     it('returns an array with the shortest path through the graph', () => {
-      let path = djikstra.shortestPath(F);
+      let path = dijkstra.shortestPath(F);
       let expected = [A, B, E, G, F];
       for(let i = 0; i < path.length; ++i) {
         expect(path[i].equals(expected[i])).toBeTruthy();
       }
 
-      path = djikstra.shortestPath(C);
+      path = dijkstra.shortestPath(C);
       expected = [A, C];
       for(let i = 0; i < path.length; ++i) {
         expect(path[i].equals(expected[i])).toBeTruthy();
