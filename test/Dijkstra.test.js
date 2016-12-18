@@ -25,7 +25,7 @@ describe('Dijkstra', () => {
 
   describe('shortestPath', () => {
     it('returns an array with the shortest path through the graph', () => {
-      const path = expect(djikstra.shortestPath(F));
+      const path = djikstra.shortestPath(F);
       const expected = [A, B, E, G, F];
       for(let i = 0; i < path.length; ++i) {
         expect(path[i].equals(expected[i])).toBeTruthy();
