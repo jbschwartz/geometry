@@ -52,7 +52,7 @@ export default class Dijkstra {
 			// Take the shortest node from the fringe list
 			fringe.sort((a, b) => a.distance - b.distance);
 			current = fringe.splice(0, 1)[0];
-		} while(fringe.length > 0);
+		} while(current && fringe.length >= 0);
 
 		this.isValid = true;
 	}
