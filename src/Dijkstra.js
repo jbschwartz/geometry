@@ -38,7 +38,7 @@ export default class Dijkstra {
 		let current = this.initial;
 		do {
 			current.connections.forEach(neighbor => {
-				const newDistance = current.distance + current.distanceToSq(neighbor);
+				const newDistance = current.distance + current.distanceTo(neighbor);
 				if(newDistance < neighbor.distance) {
 					neighbor.distance = newDistance;
 					neighbor.previous = current;
