@@ -16,7 +16,7 @@ describe('Dijkstra', () => {
   B.connections = [A, D, E];
   C.connections = [A, E];
   D.connections = [B, E, F];
-  E.connections = [B, C, D];
+  E.connections = [B, C, D, G];
   F.connections = [D, G];
   G.connections = [E, F];
 
